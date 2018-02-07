@@ -1,0 +1,58 @@
+<script>$(document).ready(function() {
+    $('#example').dataTable( {
+        "columnDefs": [ {
+          "targets": 'no-sort',
+          "orderable": false,
+    } ]
+} );
+} );</script>
+
+<div class="bs-docs-section clearfix" style="margin-top: -4em;">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="navbars">Libros</h1>
+            </div>
+<div class="row">
+<a href="<%= new_book_path %>" class="btn btn-info" role="button">Nuevo Libro</a>
+</div><br>
+            <div class="bs-component">
+<table id="example">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Autor</th>
+      <th class="no-sort" width="10%">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.name %></td>
+        <td><%= book.author %></td>
+<td> <div class="row">
+                                    <div class="dropdown" style="text-align: center;">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Opciones 
+                                        <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><%= link_to 'Consultar', book %></li>
+											<li><%= link_to 'Editar', edit_book_path(book) %></li>       
+											<li><%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Are you sure?' } %></li>		
+											</ul>
+                                    </div>
+                                    
+                                </div></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>            
+</div>
+
+          </div>
+        </div>
+      </div>
+
