@@ -7,3 +7,9 @@
     color: #333;
     white-space: nowrap;
 }
+.form-control-plaintext {
+    padding-left:5px;
+}
+.espacio_boton {
+    margin-left: 10px;
+}

@@ -1,27 +1,60 @@
-<div class="book">
- <%= content_tag :span, "#{@book.name} (#{@book.author})",
- class: "book-title" %>
- <%= link_to 'Edit', edit_book_path(@book) %>
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6"><%= link_to 'Atras', books_path, class: "btn btn-danger" %></div>
 </div>
-<div id="notes">
+<br>
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+	<div class="card text-white bg-primary mb-3">
+  <div class="card-header">Libro</div>
+  <div class="card-body text-secondary">
+    <h4 class="card-title"><%= @book.name %></h4>
+    <p class="card-text"><%= @book.author %></p>
+    <a href="<%= edit_book_path(@book) %>" class="btn btn-info btn-sm" role="button">Editar Libro</a>
+  </div>
+</div>
+	</div>
+</div>
+
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4"><h4 style="text-align:center;">Notas</h4></div>
+</div>
+<div id="notes" class="row">
  <%= render @book.notes %>
 </div>
+<br>
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4"><h4 style="text-align:center;">Añadir nota</h4></div>
+</div>
+
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
 <div>
  <%= form_for([@book, @book.notes.new]) do |f| %>
- <div class="field">
- <%= f.label :title %>
- <%= f.text_field :title %>
- </div>
- <div class="field">
- <%= f.label :note %>
- <%= f.text_field :note, size: "25x5" %>
- </div>
+<div class="form-group row">
+	<%= f.label :Titulo, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+	<%= f.text_field :title, class: "form-control-plaintext" %>
+      </div>
+    </div> 
+<div class="form-group row">
+        <%= f.label :Nota, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :note, size: "25x10", class: "form-control-plaintext" %>
+      </div>
+    </div> 
  <div class="actions">
- <%= f.submit "Nueva Nota" %>
+ <%= f.submit "Nueva Nota", class: "btn btn-primary btn-sm" %>
  </div>
  <% end %>
 </div>
-<%= link_to 'Back', books_path %>
+</div>
+</div>
+
 
 <!--
 <p>

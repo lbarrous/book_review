@@ -6,13 +6,59 @@
     } ]
 } );
 } );</script>
+<script>
+dataConfirmModal.setDefaults({
+  title: 'Borrar libro',
+  commit: 'Continuar',
+  cancel: 'Cancelar'
+});
+</script>
 
 <div class="bs-docs-section clearfix" style="margin-top: -4em;">
-        <div class="jumbotron">
-  <h1 class="display-3">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="navbars">Libros</h1>
+            </div>
+<div class="row">
+<a href="<%= new_book_path %>" class="btn btn-info" role="button">Nuevo Libro</a>
+</div><br>
+            <div class="bs-component">
+<table id="example">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Autor</th>
+      <th class="no-sort" width="10%">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr id="<%= book.id %>">
+        <td><%= book.name %></td>
+        <td><%= book.author %></td>
+<td> <div class="row">
+                                    <div class="dropdown" style="text-align: center;">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Opciones 
+                                        <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><%= link_to 'Consultar', book %></li>
+						<li><%= link_to 'Editar', edit_book_path(book) %></li>       
+							<li><%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Vas a borrar este libro, ¿Estás seguro?' } %></li>		
+											</ul>
+                                    </div>
+                                    
+                                </div></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
 </div>
+
+          </div>
+        </div>
       </div>
 

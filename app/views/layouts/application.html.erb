@@ -8,8 +8,11 @@
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   	<%= csrf_meta_tags %>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/datatables.min.css"/>
- 
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/datatables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/datatables.min.js"></script>
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://rawgithub.com/EugenMayer/bootstrap-dialog/bootstrap4-dev/dist/js/bootstrap-dialog.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   </head>
@@ -24,12 +27,9 @@
   
 			<ul class="navbar-nav">
             <li class="nav-item">
-		<%= link_to "Inicio", root_path,
+		<%= link_to "Libros", books_path,
             { :class=>"nav-link" }  %>	
 		</li>
-			<li class="nav-item">
-              <a class="nav-link" href="http://builtwithbootstrap.com/" target="_blank">Libros</a>
-            </li>
           </ul>
 <ul class="nav navbar-nav ml-auto">
 		<% if logged_in? %>
