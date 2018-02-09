@@ -1,0 +1,48 @@
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6"><h1>Registro</h1></div>
+</div>
+
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<% if !@reviewer.errors.empty? %>
+  <ul>
+    <% @reviewer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for Reviewer.new do |f| %>  
+<div class="form-group row">
+        <%= f.label :Nombre, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class: "form-control-plaintext" %>
+      </div>
+    </div>
+<div class="form-group row">
+        <%= f.label :Email, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :email, class: "form-control-plaintext" %>
+      </div>
+    </div>
+<div class="form-group row">
+        <%= f.label :Contraseña, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.password_field :password, size: "25x10", class: "form-control-plaintext" %>
+      </div>
+    </div>
+<div class="form-group row">
+        <%= f.label "Confirmar contraseña", class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.password_field :password_confirmation, size: "25x10", class: "form-control-plaintext" %>
+      </div>
+    </div>
+<br />
+  <%= recaptcha_tags %>
+  <br />
+  <div class="actions">
+    <%= f.submit "Registro", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>

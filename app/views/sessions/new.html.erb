@@ -1,13 +1,31 @@
-<h1>Login</h1>
-<%= form_for(:reviewer, url: sessions_path) do |f| %>
- <div class="field">
- <%= f.label :name %> <br />
- <%= f.text_field :name %>
- </div>
-<div class="field">
- <%= f.label :password %> <br />
- <%= f.password_field :password %>
- </div>
- <p></p>
- <div class="actions"><%= f.submit "Login" %></div>
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6"><h1>Login</h1></div>
+</div>
+
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<%= form_for(:reviewer, url: sessions_path) do |f| %>  
+  <div class="form-group row">
+        <%= f.label :Nombre, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :email, class: "form-control-plaintext" %>
+      </div>
+    </div>
+<div class="form-group row">
+        <%= f.label :Contraseña, class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.password_field :password, size: "25x10", class: "form-control-plaintext" %>
+      </div>
+    </div>
+  <div class="actions">
+    <%= f.submit "Login", class: "btn btn-primary" %>
+  </div>
 <% end %>
+</div>
+</div>
+
+
+
+

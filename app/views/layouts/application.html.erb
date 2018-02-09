@@ -35,19 +35,22 @@
 		<% if logged_in? %>
  
 <li class="nav-item">
-              <a class="nav-link" href="#" target="_blank">Bienvenido <%= current_user.name %></a>
-       </li>
+<%= link_to "Registro", new_reviewer_url,
+            { :class=>"nav-link" }  %>         
+</li>
 <li class="nav-item">
               <%= link_to "Logout", logout_path,
             { method: :delete, :class=>"nav-link" }  %>
             </li>
 <% else %>
   <li class="nav-item">
-              <a class="nav-link" href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Login</a>
-            </li>
+<%= link_to "Login", login_url,
+            { :class=>"nav-link" }  %>              
+</li>
                         <li class="nav-item">
-              <a class="nav-link" href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Registro</a>
-            </li>
+<%= link_to "Registro", new_reviewer_url,
+            { :class=>"nav-link" }  %>            
+</li>
 <% end %>
 		  
           </ul>
@@ -58,12 +61,17 @@
 
 
     <div class="container">
-
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
 <% flash.each do |key, value| %>
-<div class="alert alert-success">
+<div class="alert alert-info">
   <%= value %>
 </div>
 <% end %>
+</div>
+</div>
+
 <br>
 
 <%= yield %>

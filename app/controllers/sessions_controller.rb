@@ -6,18 +6,18 @@ class SessionsController < ApplicationController
   end
 
  def create
-  reviewer = Reviewer.find_by(name: params[:reviewer][:name])
+  reviewer = Reviewer.find_by(email: params[:reviewer][:email])
   password = params[:reviewer][:password]
   if reviewer && reviewer.authenticate(password)
    session[:reviewer_id] = reviewer.id
-   redirect_to root_path, notice: "Logged in successfully"
+   redirect_to books_path, notice: "Login correcto."
   else
-   redirect_to login_path, alert: "Logged in successfully"
+   redirect_to login_path, alert: "Login incorrecto."
   end
  end
 
  def destroy
   reset_session
-  redirect_to login_path, notice: "You have been Logged out"
+  redirect_to root_path, notice: "Te has deslogueado correctamente!"
  end
 end

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  root 'books#index'
+  get 'welcome/index'
+
+  resources :reviewers, only: [:new, :create]
+  root to: 'welcome#index'
+
+  #root 'books#index'
   resources :books do
    resources :notes, only: [:create, :destroy]
   end
