@@ -1,4 +1,11 @@
 <div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<h3>Bienvenido a Librómetro</h3>
+</div>
+</div>
+<br>
+<div class="row">
 <div class="col-md-4">
 <%= link_to 'Login', login_url, class: "btn btn-info", role: "button" %>
 </div>
@@ -6,6 +13,6 @@
 <%= link_to 'Registro', new_reviewer_url, class: "btn btn-primary", role: "button" %>
 </div>
 <div class="col-md-4">
-<%= link_to 'Consultar libros', new_reviewer_url, class: "btn btn-secondary", role: "button" %>
+<%= link_to 'Consultar libros', list_books_url, class: "btn btn-secondary", role: "button" %>
 </div>
 </div>
