@@ -1,0 +1,25 @@
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6"><%= link_to 'Atras', list_books_url, class: "btn btn-danger" %></div>
+</div>
+<br>
+<div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+        <div class="card text-white bg-primary mb-3">
+  <div class="card-header">Libro</div>
+  <div class="card-body text-secondary">
+    <h4 class="card-title"><%= @book.name %></h4>
+    <p class="card-text"><%= @book.author %></p>
+  </div>
+</div>
+        </div>
+</div>
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4"><h4 style="text-align:center;">Notas</h4></div>
+</div>
+<div id="notes" class="row">
+ <%= render @book.notes %>
+</div>
+<br>

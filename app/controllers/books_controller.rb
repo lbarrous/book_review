@@ -1,5 +1,14 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  skip_before_action :ensure_login, only: [:list_unauthorized, :notes_unauthorized]
+
+  def list_unauthorized
+    @books = Book.all
+  end
+
+  def notes_unauthorized
+    @book = Book.find(params[:id])
+  end
 
   # GET /books
   # GET /books.json

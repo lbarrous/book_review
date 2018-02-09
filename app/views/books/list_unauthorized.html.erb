@@ -1,33 +1,23 @@
 <script>$(document).ready(function() {
     $('#example').dataTable( {
-	"language": {
+        "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
         },
-	"columnDefs": [ {
+        "columnDefs": [ {
           "targets": 'no-sort',
           "orderable": false,
-    } ]	
+    } ] 
     } );
 } );
-</script>
-<script>
-dataConfirmModal.setDefaults({
-  title: 'Borrar libro',
-  commit: 'Continuar',
-  cancel: 'Cancelar'
-});
 </script>
 
 <div class="bs-docs-section clearfix" style="margin-top: -4em;">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h1 id="navbars">Tus libros</h1>
-            </div>
-<div class="row">
-<a href="<%= new_book_path %>" class="btn btn-info" role="button">Nuevo Libro</a>
-</div><br>
-            <div class="bs-component">
+              <h1 id="navbars">Libros totales</h1>
+            </div> 
+<div class="bs-component">
 <table id="example">
   <thead>
     <tr>
@@ -43,21 +33,17 @@ dataConfirmModal.setDefaults({
         <td><%= book.author %></td>
 <td> <div class="row">
                                     <div class="dropdown" style="text-align: center;">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Opciones 
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Opciones
                                         <span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <li><%= link_to 'Consultar', book %></li>
-						<li><%= link_to 'Editar', edit_book_path(book) %></li>       
-							<li><%= link_to 'Eliminar', book, method: :delete, data: { confirm: 'Vas a borrar este libro, ¿Estás seguro?' } %></li>		
-											</ul>
+                                            <li><%= link_to 'Consultar', notes_unauth_path(book) %></li>
                                     </div>
-                                    
+
                                 </div></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 </div>
@@ -65,4 +51,3 @@ dataConfirmModal.setDefaults({
           </div>
         </div>
       </div>
-

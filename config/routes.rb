@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   get 'welcome/index'
+  
+  get '/list_books', to: "books#list_unauthorized"
+  get '/list_books/:id', to: 'books#notes_unauthorized', as: 'notes_unauth'
 
   resources :reviewers, only: [:new, :create]
   root to: 'welcome#index'

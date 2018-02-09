@@ -15,6 +15,5 @@
 //= require turbolinks
 //= require popper.min.js
 //= require bootstrap.min.js
-//= require bootstrap-dialog.min.js
 //= require custom.js
 //= require data-confirm-modal
